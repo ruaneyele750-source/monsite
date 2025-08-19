@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Événements</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {        
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #E6E6FA;
+    color: #222;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.logo { color:#fff; font-size:20px; font-weight:bold; }
+.nav-links { list-style:none; display:flex; gap:20px; align-items:center; }
+.nav-links li { position: relative; }
+.nav-links li a { text-decoration:none; color:#fff; padding:8px 12px; display:block; }
+.nav-links li a:hover { background:#555; border-radius:5px; }
+
+/* Dropdown Événements */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background:#222;
+    min-width:220px;
+    border-radius:5px;
+    z-index:100;
+    flex-direction: column;
+}
+.dropdown-menu li a { padding:10px 15px; }
+.dropdown:hover .dropdown-menu { display:flex; flex-direction: column; }
+.dropdown-menu li a:hover { background:#555; }
+
+/* --- CONTENU ÉVÉNEMENTS --- */
+.container {
+    max-width:900px;
+    margin:30px auto;
+    padding:0 20px;
+}
+.intro-text {
+    text-align:center;
+    margin-bottom:30px;
+    color:#6a5acd;
+}
+.event-card {
+    background:#fff;
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.event-card img {
+    width:100%;
+    height:auto;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+.event-card h2 { color:#6a5acd; margin-bottom:10px; }
+.event-card p { margin-bottom:8px; }
+.event-card a { display:inline-block; padding:10px 20px; background:#007BFF; color:#fff; border-radius:8px; text-decoration:none; transition:0.3s; }
+.event-card a:hover { background:#0056b3; }
+
+/* --- FOOTER --- */
+footer { background:#222; color:#ddd; padding:40px 20px; text-align:center; }
+footer h3 { margin-bottom:15px; color:#fff; }
+footer p { font-size:0.95rem; color:#ccc; }
+
+/* --- RESPONSIVE --- */
+@media(max-width:768px){
+    .menu-toggle{ display:flex; flex-direction: column; cursor:pointer; gap:4px; }
+    .menu-toggle span { height:3px; width:25px; background:#fff; border-radius:2px; display:block; }
+    .nav-links { flex-direction: column; position:absolute; top:100%; right:0; width:240px; background:#222; display:none; padding:10px 0; border-radius:0 0 8px 8px; }
+    .nav-links.active { display:flex; }
+    .dropdown-menu { position: relative; top:0; left:0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">SorianoStore</div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+
+        <li class="dropdown">
+            <a href="evenements.html">Événements ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="#concert-jazz">Concert Jazz Night</a></li>
+                <li><a href="#festival-pop">Festival Pop Rock</a></li>
+                <li><a href="#soiree-electro">Soirée Electro</a></li>
+                <li><a href="#soirée-classique">Soirée Classique</a></li>
+            </ul>
+        </li>
+
+        <li><a href="Apropos.html">À propos</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+    </ul>
+
+    <div class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- CONTENU ÉVÉNEMENTS -->
+<div class="container">
+    <div class="intro-text">
+        <h1>Nos événements à venir</h1>
+        <p>Découvrez tous nos événements musicaux et culturels, et réservez vos places facilement en ligne !</p>
+    </div>
+
+    <div id="concert-jazz" class="event-card">
+        <img src="show.jpg" alt="Concert Jazz Night">
+        <h2>Concert Jazz Night</h2>
+        <p><strong>Date :</strong> 25 août 2025</p>
+        <p><strong>Lieu :</strong> Théâtre Central</p>
+        <p>Venez profiter d'une soirée magique avec les plus grands musiciens de jazz de la région.</p>
+        <a href="#">📌 Réserver</a>
+    </div>
+
+    <div id="festival-pop" class="event-card">
+        <img src="show2.jpg" alt="Festival Pop Rock">
+        <h2>Festival Pop Rock</h2>
+        <p><strong>Date :</strong> 15 septembre 2025</p>
+        <p><strong>Lieu :</strong> Stade Municipal</p>
+        <p>Trois jours de pop et rock avec vos groupes préférés. Ambiance garantie !</p>
+        <a href="#">📌 Réserver</a>
+    </div>
+
+    <div id="soiree-electro" class="event-card">
+        <img src="show3.jpg" alt="Soirée Electro">
+        <h2>Soirée Electro</h2>
+        <p><strong>Date :</strong> 5 octobre 2025</p>
+        <p><strong>Lieu :</strong> Club Pulse</p>
+        <p>Une nuit électrisante avec les meilleurs DJ et light show exceptionnel.</p>
+        <a href="#">📌 Réserver</a>
+    </div>
+
+    <div id="soiree-classique" class="event-card">
+        <img src="show4.jpg" alt="Soirée Classique">
+        <h2>Soirée Classique</h2>
+        <p><strong>Date :</strong> 20 octobre 2025</p>
+        <p><strong>Lieu :</strong> Opéra National</p>
+        <p>Une soirée élégante avec des performances classiques de haut niveau, idéale pour les amateurs de musique raffinée.</p>
+        <a href="#">📌 Réserver</a>
+    </div>
+</div>
+
+<footer>
+    <h3>Contact</h3>
+    <p>Email : contact@monlogo.com</p>
+    <p>Téléphone : +241 00 00 00 00</p>
+</footer>
+
+<script>
+/* Menu Burger */
+const nav=document.querySelector(".navbar");
+const navLinks=document.getElementById("nav-links");
+const menuToggle=document.getElementById("menu-toggle");
+function toggleMenu(forceState){
+    const willOpen=typeof forceState==="boolean"?forceState:!navLinks.classList.contains("active");
+    navLinks.classList.toggle("active",willOpen);
+}
+menuToggle.addEventListener("click",e=>{ e.stopPropagation(); toggleMenu(); });
+menuToggle.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); toggleMenu(); } });
+document.addEventListener("click",e=>{ const isMobile=window.matchMedia("(max-width:768px)").matches; if(isMobile && !nav.contains(e.target)) toggleMenu(false); });
+document.querySelectorAll(".nav-links a").forEach(a=>{ a.addEventListener("click",()=>{ const isMobile=window.matchMedia("(max-width:768px)").matches; if(isMobile) toggleMenu(false); }); });
+window.addEventListener("resize",()=>{ const isMobile=window.matchMedia("(max-width:768px)").matches; if(!isMobile) navLinks.classList.remove("active"); });
+</script>
+
+</body>
+</html>
